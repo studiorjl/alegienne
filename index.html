@@ -1,40 +1,100 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en-AU">
 <head>
-  <meta charset="UTF-8">
-  <title>Plume by Legion</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ALEGIENNE | Explore with Love and Inspiration</title>
+  <meta name="description" content="Discover Alegienne, a brand dedicated to creating heartfelt products with love. Explore our offerings and learn more about our mission and values.">
+  <meta property="og:title" content="ALEGIENNE | Explore with Love and Inspiration">
+  <meta property="og:description" content="Discover Alegienne, a brand dedicated to creating heartfelt products with love. Explore our offerings and learn more about our mission and values.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/66bc8f2b527a01721ffd1c8c/b70cf637-232a-49ab-92ca-674bf3651ba8/alegienne_gold.png?format=1500w">
+  <link rel="icon" href="https://images.squarespace-cdn.com/content/v1/66bc8f2b527a01721ffd1c8c/152144f4-b9b5-4db8-8469-5c37386a7505/favicon.ico?format=100w">
+  <link rel="preconnect" href="https://images.squarespace-cdn.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap">
   <style>
+    :root {
+      --ink: #2a211b;
+      --muted: #806f61;
+      --paper: #f8f4ef;
+      --cream: #fffaf3;
+      --rose: #d6a9a0;
+      --gold: #b8904e;
+      --shadow: 0 26px 80px rgba(65, 46, 30, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #0e0e0e;
-      color: #f2f2f2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
       margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(214, 169, 160, 0.2), transparent 34rem),
+        linear-gradient(145deg, #fffaf3 0%, #f6efe6 48%, #fffdf8 100%);
+      font-family: "Libre Baskerville", Georgia, serif;
     }
-    .container {
-      max-width: 600px;
-      padding: 20px;
+
+    img,
+    img {
+      display: block;
+      max-width: 100%;
     }
-    h1 { font-size: 2.5rem; }
-    p { opacity: 0.8; line-height: 1.5; }
-    .tag {
-      margin-top: 20px;
-      font-size: 0.9rem;
-      opacity: 0.6;
+
+    a {
+      color: inherit;
     }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Plume</h1>
-    <p>A ritual smoke blend crafted for clarity, transition, and atmosphere.</p>
-    <p>Botanical composition, intention, and story coming soon.</p>
-    <div class="tag">Legion / Lagen</div>
-  </div>
-</body>
-</html>
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      padding: clamp(12px, 2vw, 22px) 24px 10px;
+      background: rgba(255, 250, 243, 0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(184, 144, 78, 0.18);
+    }
+
+    .brand-logo {
+      width: min(260px, 54vw);
+      height: auto;
+    }
+
+    .hero {
+      width: min(1500px, 100%);
+      margin: 0 auto;
+      padding: clamp(18px, 4vw, 46px) clamp(18px, 5vw, 72px) clamp(44px, 7vw, 100px);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+      gap: clamp(26px, 5vw, 78px);
+      align-items: start;
+    }
+
+    .image-stack {
+      position: relative;
+      align-self: start;
+      min-height: clamp(500px, 56vw, 680px);
+    }
+
+    .photo-main,
+    .paper-card,
+    .photo-small,
+    .video-card {
+      position: absolute;
+      overflow: hidden;
+      border: 1px solid rgba(184, 144, 78, 0.22);
+      background: var(--cream);
+      box-shadow: var(--shadow);
+    }
