@@ -4,19 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ALEGIENNE | Coming soon</title>
-  <meta name="description" content="Alegienne, a brand dedicated to creating heartfelt artefacts & tea with love. online soon xo">
-  <meta property="og:title" content="ALEGIENNE | coming soon">
+  <meta name="description" content="Alegienne, a brand dedicated to creating heartfelt artefacts and tea with love. Online soon xo">
+  <meta property="og:title" content="ALEGIENNE | Coming soon">
   <meta property="og:description" content="Discover Alegienne, a brand dedicated to creating heartfelt products with love.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="alegienne_gold.png">
-  
-  <!-- Favicon -->
+
   <link rel="icon" type="image/png" href="Alegienne-favicon.png">
-  
-  <link rel="icon" href="Alegienne-favicon.png">
-  <link rel="preconnect" href="alegienne_hand_gold_transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap">
+
   <style>
     :root {
       --ink: #2a211b;
@@ -33,6 +31,7 @@
     }
 
     html {
+      min-height: 100%;
       scroll-behavior: smooth;
     }
 
@@ -45,94 +44,57 @@
         linear-gradient(145deg, #fffaf3 0%, #f6efe6 48%, #fffdf8 100%);
       font-family: "Libre Baskerville", Georgia, serif;
     }
-    .container {
-      max-width: 720px;
-      padding: 40px;
-      text-align: center;
-    }
-    .tagline {
-      font-family: "Courier New"
-      font-size: 0.9rem;
-      opacity: 0.75;
-      letter-spacing: 0.05em;
 
-    img,
     img {
       display: block;
       max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: center;
-      padding: clamp(12px, 2vw, 22px) 24px 10px;
-      background: rgba(255, 250, 243, 0.82);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(184, 144, 78, 0.18);
-    }
-
-    .brand-logo {
-      width: min(260px, 54vw);
       height: auto;
     }
 
-    .hero {
-      width: min(1500px, 100%);
-      margin: 0 auto;
-      padding: clamp(18px, 4vw, 46px) clamp(18px, 5vw, 72px) clamp(44px, 7vw, 100px);
-    }
-
-    .hero-grid {
+    .page {
+      min-height: 100vh;
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
-      gap: clamp(26px, 5vw, 78px);
-      align-items: start;
+      place-items: center;
+      padding: clamp(28px, 6vw, 80px) clamp(18px, 5vw, 64px);
     }
 
-    .image-stack {
-      position: relative;
-      align-self: start;
-      min-height: clamp(500px, 56vw, 680px);
+    .coming-soon {
+      width: min(100%, 920px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(22px, 4vw, 42px);
+      text-align: center;
     }
 
-    .photo-main,
-    .paper-card,
-    .photo-small,
-    .video-card {
-      position: absolute;
-      overflow: hidden;
-      border: 1px solid rgba(184, 144, 78, 0.22);
-      background: var(--cream);
-      box-shadow: var(--shadow);
+    .logo {
+      width: clamp(260px, 58vw, 680px);
+      max-height: 52vh;
+      object-fit: contain;
+      filter: drop-shadow(0 18px 42px rgba(65, 46, 30, 0.1));
     }
 
-    
-  </style>
-</head>
+    .divider {
+      width: clamp(72px, 14vw, 140px);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184, 144, 78, 0.85), transparent);
+    }
 
-<body>
-    <!-- Alegienne -->
-    <img src="coming soon_gold_transparent.png" alt="Alegienne Coming Soon" class="logo">
+    .tagline {
+      margin: 0;
+      color: var(--muted);
+      font-family: "Courier New", Courier, monospace;
+      font-size: clamp(0.82rem, 2.2vw, 1rem);
+      line-height: 1.8;
+      letter-spacing: 0.05em;
+    }
 
+    .signature {
+      width: clamp(180px, 34vw, 360px);
+      max-height: 22vh;
+      object-fit: contain;
+      opacity: 0.94;
+    }
 
-  <div class="container">
-
-  
-    <div class="divider"></div>
-
-    <p class="tagline">
-      <br><br> with love, from alegienne x.
-    </p>
-
-  </div>
-  <img src="alegienne_hand_gold_transparent.png" alt="with love from alegienne x" class="signature">
-
-</body>
-</html>
+    @media (max-width: 640px) {
