@@ -64,13 +64,14 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: clamp(22px, 4vw, 42px);
+      gap: clamp(18px, 3vw, 34px);
       text-align: center;
     }
 
     .logo {
-      width: clamp(260px, 58vw, 680px);
-      max-height: 52vh;
+      width: auto;
+      max-width: min(86vw, 620px);
+      max-height: 33vh;
       object-fit: contain;
       filter: drop-shadow(0 18px 42px rgba(65, 46, 30, 0.1));
     }
@@ -91,10 +92,48 @@
     }
 
     .signature {
-      width: clamp(180px, 34vw, 360px);
-      max-height: 22vh;
+      width: min(54vw, 444px);
+      max-height: 18vh;
       object-fit: contain;
       opacity: 0.94;
     }
 
     @media (max-width: 640px) {
+      .page {
+        align-items: start;
+        padding-top: clamp(52px, 12vh, 92px);
+      }
+
+      .logo {
+        max-width: 88vw;
+        max-height: 50vh;
+      }
+
+      .signature {
+        width: min(62vw, 260px);
+        max-height: 16vh;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .coming-soon {
+        gap: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page" aria-label="Alegienne coming soon">
+    <section class="coming-soon">
+      <img src="coming soon_gold_transparent.png" alt="Alegienne Coming Soon" class="logo">
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <p class="tagline">with love, from alegienne x.</p>
+
+      <img src="alegienne_hand_gold_transparent.png" alt="with love from alegienne x" class="signature">
+    </section>
+  </main>
+</body>
+</html>
