@@ -114,16 +114,16 @@
           decoding="async"
           aria-hidden="true"
         >
-        <img
-          class="florah-mark"
-          src="./assets/florah-brandmark-print-ivoryblushlightwarm.png"
-          alt=""
-          decoding="async"
-          aria-hidden="true"
-        >
-
         <h1 class="sr-only">Florah by Alegienne</h1>
       </section>
+
+      <img
+        class="florah-mark"
+        src="./assets/florah-brandmark-print-ivoryblushlightwarm.png"
+        alt=""
+        decoding="async"
+        aria-hidden="true"
+      >
 
       <section class="landing-body reveal-on-scroll" aria-label="Florah subscription details"></section>
 
@@ -139,8 +139,10 @@
         <div class="footer-divider footer-divider-legal reveal-on-scroll" aria-hidden="true"></div>
         <nav class="footer-legal reveal-on-scroll" aria-label="Legal links">
           <a href="/privacy">privacy</a>
+          <span class="footer-dot" aria-hidden="true">&middot;</span>
           <a href="/terms">terms</a>
-          <a href="https://studiorjl.com" rel="noopener">website by Studio RJL</a>
+          <span class="footer-dot" aria-hidden="true">&middot;</span>
+          <a href="https://studiorjl.com" rel="noopener">website by studio rjl</a>
         </nav>
         <div class="footer-divider footer-divider-copyright reveal-on-scroll" aria-hidden="true"></div>
         <p class="footer-copyright reveal-on-scroll">&copy; always, Alegienne.</p>
@@ -188,7 +190,7 @@
                 observer.unobserve(entry.target);
               });
             },
-            { rootMargin: "0px 0px -4% 0px", threshold: 0.04 }
+            { rootMargin: "0px 0px 10% 0px", threshold: 0.02 }
           );
 
           revealItems.forEach((item) => observer.observe(item));
