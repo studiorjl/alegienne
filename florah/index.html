@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Florah by Alegienne</title>
+    <meta name="theme-color" content="#eae3d8">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta
+      name="description"
+      content="Florah by Alegienne is a romantic floral subscription landing page for poster, QR code and campaign visitors."
+    >
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://www.alegienne.com.au/florah">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Alegienne">
+    <meta property="og:title" content="Florah by Alegienne">
+    <meta
+      property="og:description"
+      content="A romantic floral subscription by Alegienne."
+    >
+    <meta property="og:url" content="https://www.alegienne.com.au/florah">
+    <meta name="twitter:title" content="Florah by Alegienne">
+    <meta
+      name="twitter:description"
+      content="A romantic floral subscription by Alegienne."
+    >
+    <meta name="twitter:card" content="summary">
+    <script>
+      (() => {
+        document.documentElement.classList.add("js");
+        const replayRequested = new URLSearchParams(window.location.search).has("replay")
+          || window.location.hash === "#replay";
+        try {
+          if (replayRequested) {
+            window.localStorage.removeItem("florahIntroSeen");
+          } else if (window.localStorage.getItem("florahIntroSeen") === "true") {
+            document.documentElement.classList.add("intro-seen");
+          }
+        } catch (error) {
+          document.documentElement.classList.remove("intro-seen");
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Florah by Alegienne",
+        "url": "https://www.alegienne.com.au/florah",
+        "description": "Florah by Alegienne is a floral subscription landing page for poster, QR code and campaign visitors.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Alegienne",
+          "url": "https://www.alegienne.com.au/"
+        },
+        "about": {
+          "@type": "Service",
+          "name": "Florah floral subscription",
+          "provider": {
+            "@type": "Organization",
+            "name": "Alegienne",
+            "url": "https://www.alegienne.com.au/"
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main class="florah-page" aria-label="Florah by Alegienne">
+      <div class="ivory-paper" aria-hidden="true"></div>
+      <div class="paper" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+      <header class="site-menu" aria-label="Primary navigation">
+        <div class="menu-bar">
+          <a class="menu-alegienne-mark" href="/" aria-label="Alegienne home"></a>
+          <button class="menu-toggle" type="button" aria-label="Open menu">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
+
+      <section class="brand-stage" aria-label="Florah by Alegienne opening mark">
+        <img
+          class="bouquet-picture bouquet-image"
+          src="./assets/florah-bouquet-2.webp"
+          alt=""
+          width="2160"
+          height="2880"
+          decoding="async"
+          aria-hidden="true"
+        >
+        <img
+          class="sigil"
+          src="./assets/sigil-blush-texture.png"
+          alt=""
+          decoding="async"
+          aria-hidden="true"
+        >
+        <div class="sigil-sparkle" aria-hidden="true"></div>
+        <img
+          class="by-mark"
+          src="./assets/BY.png"
+          alt=""
+          decoding="async"
+          aria-hidden="true"
+        >
+        <img
+          class="alegienne-mark"
+          src="./assets/Alegienne-wordmark-logo-blushIVORYwarm.png"
+          alt=""
+          decoding="async"
+          aria-hidden="true"
+        >
+        <img
+          class="florah-mark"
+          src="./assets/florah-brandmark-print-ivoryblushlightwarm.png"
+          alt=""
+          decoding="async"
+          aria-hidden="true"
+        >
+
+        <h1 class="sr-only">Florah by Alegienne</h1>
+      </section>
+
+      <section class="landing-body reveal-on-scroll" aria-label="Florah subscription details"></section>
+
+      <footer class="site-footer" aria-label="Alegienne footer">
+        <p class="footer-love reveal-on-scroll">with love,</p>
+        <img
+          class="footer-signature reveal-on-scroll"
+          src="./assets/alegienne-signature-gold.png"
+          alt="Alegienne"
+          loading="lazy"
+          decoding="async"
+        >
+        <div class="footer-divider footer-divider-legal reveal-on-scroll" aria-hidden="true"></div>
+        <nav class="footer-legal reveal-on-scroll" aria-label="Legal links">
+          <a href="/privacy">privacy policy</a>
+          <a href="/terms">terms</a>
+        </nav>
+        <div class="footer-divider footer-divider-copyright reveal-on-scroll" aria-hidden="true"></div>
+        <p class="footer-copyright reveal-on-scroll">&copy; always, Alegienne.</p>
+        <div class="footer-divider footer-divider-credit reveal-on-scroll" aria-hidden="true"></div>
+        <p class="footer-credit reveal-on-scroll">
+          <a href="https://studiorjl.com" rel="noopener">website by studio rjl</a>
+        </p>
+      </footer>
+    </main>
+    <div class="custom-cursor" aria-hidden="true"></div>
+    <script>
+      (() => {
+        const openingDuration = 10600;
+        const revealItems = Array.from(document.querySelectorAll(".reveal-on-scroll"));
+        const alreadySeen = document.documentElement.classList.contains("intro-seen");
+        let openingComplete = alreadySeen;
+
+        if (alreadySeen) {
+          document.documentElement.classList.add("opening-complete");
+        }
+
+        if (!alreadySeen) {
+          window.setTimeout(() => {
+            openingComplete = true;
+            document.documentElement.classList.add("opening-complete");
+            try {
+              window.localStorage.setItem("florahIntroSeen", "true");
+            } catch (error) {
+              document.documentElement.classList.add("opening-complete");
+            }
+          }, openingDuration);
+        }
+
+        const reveal = (entry) => {
+          const show = () => entry.target.classList.add("is-visible");
+          if (openingComplete) {
+            show();
+          } else {
+            window.setTimeout(show, openingDuration);
+          }
+        };
+
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                reveal(entry);
+                observer.unobserve(entry.target);
+              });
+            },
+            { rootMargin: "0px 0px -4% 0px", threshold: 0.04 }
+          );
+
+          revealItems.forEach((item) => observer.observe(item));
+        } else {
+          revealItems.forEach((target) => reveal({ target }));
+        }
+
+        const updateScrollState = () => {
+          document.documentElement.classList.toggle("is-scrolled", window.scrollY > 12);
+        };
+        updateScrollState();
+        window.addEventListener("scroll", updateScrollState, { passive: true });
+
+        const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+        const cursor = document.querySelector(".custom-cursor");
+        if (!cursor || !finePointer.matches) return;
+
+        document.body.classList.add("has-custom-cursor");
+        window.addEventListener("pointermove", (event) => {
+          cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
+        });
+
+        document.querySelectorAll("a, button").forEach((element) => {
+          element.addEventListener("pointerenter", () => cursor.classList.add("is-hovering"));
+          element.addEventListener("pointerleave", () => cursor.classList.remove("is-hovering"));
+        });
+      })();
+    </script>
+  </body>
+</html>
