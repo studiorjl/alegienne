@@ -5,7 +5,7 @@
   --ivory-paper: #eae3d8;
   --hover-mushroom: #9f9585;
   --stage-width: min(100vw, 77.14285714svh);
-  --stage-height: min(129.62962963vw, 100svh);
+  --stage-height: 100svh;
   --menu-height: min(12.71428571svh, 16.48148148vw);
   --menu-logo-width: min(29.81481481vw, 23svh, 214.666667px);
   --menu-logo-top: min(5.83333333vw, 4.5svh, 42px);
@@ -197,7 +197,7 @@ body.has-custom-cursor button {
 
 .menu-toggle {
   position: absolute;
-  top: calc(79 / 178 * 100%);
+  top: calc(var(--menu-logo-top) + (var(--menu-logo-width) * 0.0621118));
   right: calc(56 / 1080 * 100%);
   display: grid;
   gap: 7px;
@@ -207,6 +207,7 @@ body.has-custom-cursor button {
   opacity: 0;
   background: transparent;
   cursor: pointer;
+  transform: translateY(-50%);
   animation: menu-icon-arrive 0.72s ease 9.72s both;
 }
 
@@ -244,8 +245,8 @@ body.has-custom-cursor button {
   transform-origin: 50% 50%;
   transform-style: preserve-3d;
   backface-visibility: visible;
-  filter: drop-shadow(0 0 9px rgba(232, 201, 183, 0.12));
-  animation: sigil-turn 4.95s cubic-bezier(0.35, 0, 0.17, 1) both;
+  filter: drop-shadow(0 0 9px rgba(232, 201, 183, 0.1));
+  animation: sigil-turn 5.24s cubic-bezier(0.32, 0, 0.14, 1) both;
 }
 
 .sigil-sparkle {
@@ -277,8 +278,8 @@ body.has-custom-cursor button {
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   animation:
-    sigil-sparkle-turn 4.95s cubic-bezier(0.35, 0, 0.17, 1) both,
-    metal-glint 2.35s ease-in-out 0.55s infinite;
+    sigil-sparkle-turn 5.24s cubic-bezier(0.32, 0, 0.14, 1) both,
+    metal-glint 2.7s ease-in-out 0.55s infinite;
 }
 
 .by-mark {
@@ -304,13 +305,15 @@ body.has-custom-cursor button {
 }
 
 .florah-mark {
-  left: calc(184 / 1080 * 100%);
-  top: calc(540 / 1400 * 100%);
+  position: fixed;
+  left: 50%;
+  top: calc(540 / 1400 * 100svh);
   z-index: 4;
-  width: calc(713 / 1080 * 100%);
+  width: min(calc(713 / 1080 * 100vw), calc(713 / 1080 * 77.14285714svh));
   opacity: 0;
   filter: drop-shadow(0 0 7px rgba(232, 201, 183, 0.08));
-  animation: florah-quick-fade 0.86s cubic-bezier(0.22, 0.72, 0.24, 1) 4.72s both;
+  transform: translateX(-50%);
+  animation: florah-quick-fade 1.06s cubic-bezier(0.2, 0.68, 0.18, 1) 4.86s both;
 }
 
 .landing-body {
@@ -339,7 +342,7 @@ body.has-custom-cursor button {
 
 .site-footer {
   position: relative;
-  z-index: 1;
+  z-index: 8;
   display: grid;
   justify-items: center;
   padding: clamp(52px, 9vw, 92px) 24px clamp(30px, 5vw, 52px);
@@ -354,8 +357,7 @@ body.has-custom-cursor button {
 
 .footer-love,
 .footer-legal,
-.footer-copyright,
-.footer-credit {
+.footer-copyright {
   margin: 0;
   font-family: "Courier New", Courier, monospace;
   font-weight: 400;
@@ -391,61 +393,45 @@ body.has-custom-cursor button {
 
 .footer-legal {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: center;
-  gap: clamp(18px, 7vw, 44px);
-  font-size: clamp(12px, 2.8vw, 14px);
+  gap: clamp(11px, 3.5vw, 28px);
+  width: min(100%, 520px);
+  font-size: clamp(10px, 2.35vw, 12px);
   line-height: 1.45;
-  text-transform: lowercase;
   --reveal-delay: 230ms;
 }
 
-.footer-legal a,
-.footer-credit a {
+.footer-legal a {
   color: inherit;
   text-decoration: none;
+  white-space: nowrap;
   transition:
     color 0.28s ease,
     font-style 0.28s ease;
 }
 
-.footer-legal a:hover,
-.footer-credit a:hover {
+.footer-legal a:hover {
   color: var(--hover-mushroom);
   font-style: italic;
 }
 
-.footer-legal a:focus-visible,
-.footer-credit a:focus-visible {
+.footer-legal a:focus-visible {
   outline: 1px solid currentColor;
   outline-offset: 5px;
 }
 
 .footer-copyright {
-  margin-top: clamp(12px, 3vw, 22px);
-  font-size: clamp(11px, 2.5vw, 13px);
+  margin-top: clamp(10px, 2.4vw, 16px);
+  font-size: clamp(10px, 2.35vw, 12px);
   line-height: 1.45;
-  --reveal-delay: 390ms;
+  --reveal-delay: 350ms;
 }
 
 .footer-divider-copyright {
-  margin: clamp(12px, 2.8vw, 20px) auto 0;
+  margin: clamp(10px, 2.4vw, 16px) auto 0;
   background: rgba(232, 201, 183, 0.34);
   --reveal-delay: 310ms;
-}
-
-.footer-divider-credit {
-  margin: clamp(12px, 2.8vw, 20px) auto 0;
-  background: rgba(232, 201, 183, 0.32);
-  --reveal-delay: 470ms;
-}
-
-.footer-credit {
-  margin-top: clamp(8px, 2vw, 12px);
-  font-size: clamp(10px, 2.25vw, 12px);
-  line-height: 1.4;
-  text-transform: lowercase;
-  color: rgba(232, 201, 183, 0.92);
-  --reveal-delay: 550ms;
 }
 
 .custom-cursor {
@@ -505,6 +491,7 @@ body.has-custom-cursor .custom-cursor {
 
 .intro-seen .florah-mark {
   opacity: 0.92;
+  transform: translateX(-50%);
   animation: none;
 }
 
@@ -563,16 +550,16 @@ body.has-custom-cursor .custom-cursor {
   }
 
   18% {
-    opacity: 0.92;
+    opacity: 0.76;
   }
 
   74% {
-    opacity: 0.92;
+    opacity: 0.76;
     transform: rotateY(360deg) scale(1);
   }
 
   84% {
-    opacity: 0.9;
+    opacity: 0.72;
     transform: rotateY(360deg) scale(1);
   }
 
@@ -589,16 +576,16 @@ body.has-custom-cursor .custom-cursor {
   }
 
   18% {
-    opacity: 0.34;
+    opacity: 0.26;
   }
 
   74% {
-    opacity: 0.36;
+    opacity: 0.28;
     transform: rotateY(360deg) scale(1);
   }
 
   84% {
-    opacity: 0.3;
+    opacity: 0.22;
     transform: rotateY(360deg) scale(1);
   }
 
@@ -640,10 +627,12 @@ body.has-custom-cursor .custom-cursor {
 @keyframes florah-quick-fade {
   from {
     opacity: 0;
+    transform: translateX(-50%) translateY(7px);
   }
 
   to {
     opacity: 0.92;
+    transform: translateX(-50%) translateY(0);
   }
 }
 
@@ -797,17 +786,25 @@ body.has-custom-cursor .custom-cursor {
   }
 
   .by-mark,
-  .alegienne-mark,
-  .florah-mark {
+  .alegienne-mark {
     opacity: 0.92;
     transform: none;
   }
 
+  .florah-mark {
+    opacity: 0.92;
+    transform: translateX(-50%);
+  }
+
   .ivory-paper,
-  .menu-bar,
-  .menu-toggle {
+  .menu-bar {
     opacity: 1;
     transform: none;
+  }
+
+  .menu-toggle {
+    opacity: 1;
+    transform: translateY(-50%);
   }
 
   .bouquet-picture,
@@ -841,8 +838,6 @@ body.has-custom-cursor .custom-cursor {
   }
 
   .menu-toggle {
-    top: 50%;
     right: clamp(32px, 5vw, 72px);
-    transform: translateY(-50%);
   }
 }
