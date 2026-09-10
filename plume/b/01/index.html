@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>plume · batch no. 01 — alegienne</title>
   <meta name="description" content="plume, batch no. 01. plume, batch no. 01 — this blend is for bliss. damiana, mugwort, mullein, spearmint, rose, chamomile, blue lotus, blue butterfly pea blossom, marshmallow root, vanilla, magic, & love.">
-  <meta name="theme-color" content="#300505">
+  <meta name="theme-color" content="#1f0a04">
   <meta name="robots" content="noindex, follow">
   <meta property="og:title" content="plume · batch no. 01 — alegienne">
   <meta property="og:description" content="this batch's botanicals, blended by hand by alegienne from the forest apothecary.">
@@ -16,7 +16,7 @@
   <link rel="icon" type="image/png" href="/Alegienne-favicon.png">
 
   <!-- shared plume style guide — see /plume-assets/plume-shared.css -->
-  <link rel="stylesheet" href="/plume-assets/plume-shared.css?v=6">
+  <link rel="stylesheet" href="/plume-assets/plume-shared.css?v=7">
 </head>
 
 <body>
@@ -36,19 +36,18 @@
     3. on /plume.html, update the "explore the botanicals" button's
        href to point at the new /plume/b/02/ so it always leads to
        the CURRENT season's batch.
-    everything else (video background, logo, animation, buttons,
-    dividers, mobile layout) comes from the shared stylesheet —
-    you never need to touch that part per batch.
+    everything else (textured background, logo, animation, buttons,
+    dividers, footer, mobile layout) comes from the shared
+    stylesheet — you never need to touch that part per batch.
+    note: batch pages use the still .texture-bg, NOT the smoke
+    video — the video is landing-page-only, by design.
     ══════════════════════════════════════════════════════════════
   -->
 
-  <!-- the smoke, for the whole scroll -->
-  <video class="video-bg" autoplay muted loop playsinline disablepictureinpicture
-         poster="/plume-assets/plume-bg-poster.jpg" aria-hidden="true">
-    <source src="/plume-assets/plume-smoke-bg-pingpong.webm" type="video/webm">
-    <source src="/plume-assets/plume-smoke-bg-pingpong.mp4" type="video/mp4">
-  </video>
-  <div class="bg-tint" aria-hidden="true"></div>
+  <!-- the botanical/batch pages use a still textured background —
+       the smoke video lives on the landing page only -->
+  <div class="texture-bg" aria-hidden="true"></div>
+  <div class="bg-tint" aria-hidden="true" style="animation: tint-rise 1.6s ease 0.1s both;"></div>
 
   <!-- 1. Plume -->
   <div class="plume-stage">
@@ -108,6 +107,11 @@
 
   </div>
 
+  <footer class="site-footer reveal">
+    <p><a href="https://studiorjl.com" target="_blank" rel="noopener">site by studio rjl</a></p>
+    <p>&copy; always, alegienne. <a href="/plume/privacy/">privacy</a></p>
+  </footer>
+
   <noscript>
     <style>
       .btn, .reveal { opacity: 1; transform: none; }
@@ -116,7 +120,7 @@
     </style>
   </noscript>
 
-  <script src="/plume-assets/plume-shared.js?v=6"></script>
+  <script src="/plume-assets/plume-shared.js?v=7"></script>
   <script>PlumeUI.init();</script>
 </body>
 </html>
