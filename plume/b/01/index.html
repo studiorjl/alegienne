@@ -16,7 +16,14 @@
   <link rel="icon" type="image/png" href="/Alegienne-favicon.png">
 
   <!-- shared plume style guide — see /plume-assets/plume-shared.css -->
-  <link rel="stylesheet" href="/plume-assets/plume-shared.css?v=8">
+  <link rel="stylesheet" href="/plume-assets/plume-shared.css?v=9">
+
+  <!-- batch-page-only air: a little more breathing space between the
+       divider and "with love" than the landing page uses -->
+  <style>
+    .divider.divider-tight { margin-bottom: 14px; }
+    .tagline { margin-top: 16px; }
+  </style>
 </head>
 
 <body>
@@ -36,6 +43,9 @@
     3. on /plume.html, update the "explore the botanicals" button's
        href to point at the new /plume/b/02/ so it always leads to
        the CURRENT season's batch.
+    4. the reorder button is generic on purpose (subject "reorder:
+       plume") — the exact blend in a future batch isn't guaranteed,
+       so never point it at a specific batch.
     everything else (textured background, logo, animation, buttons,
     dividers, footer, mobile layout) comes from the shared
     stylesheet — you never need to touch that part per batch.
@@ -59,12 +69,13 @@
     <!-- 2. The batch, typed -->
     <h1 aria-label="batch no. 01"><span class="type" aria-hidden="true">batch no. 01</span><span class="cursor" aria-hidden="true"></span></h1>
 
-    <!-- 3. A single action — reorder this exact blend -->
+    <!-- 3. A single action — the generic reorder, same as the plume page
+         (the exact blend in any given batch isn't guaranteed) -->
     <div class="actions">
-      <a class="btn" href="mailto:orders@alegienne.com.au?subject=reorder%3A%20plume%20batch%2001" aria-label="reorder this batch">
+      <a class="btn" href="mailto:orders@alegienne.com.au?subject=reorder%3A%20plume" aria-label="reorder plume">
         <span class="swap">
           <span class="default">more please</span>
-          <span class="on-hover">reorder this batch</span>
+          <span class="on-hover">reorder</span>
         </span>
       </a>
     </div>
@@ -73,7 +84,7 @@
 
     <div class="divider reveal"></div>
 
-    <p class="batch-label reveal">blended September 2026, in the forest apothecary.</p>
+    <p class="batch-label reveal">blended spring, September 2026,<br>in the forest apothecary.</p>
 
     <div class="blend-card reveal">
       <p class="blend-name">this blend is for bliss.</p>
@@ -81,10 +92,11 @@
         <li class="group-label">leaves</li>
         <li>damiana · mugwort · mullein · spearmint</li>
         <li class="group-label">blooms</li>
-        <li>rose · chamomile · blue lotus · blue butterfly pea blossom</li>
+        <li>rose · chamomile</li>
+        <li>blue lotus · blue butterfly pea blossom</li>
         <li>marshmallow root · vanilla · magic · &amp; love, x.</li>
       </ul>
-      <p class="blend-note">every batch shifts slightly with the season — that's the nature of a hand-blended, living thing.</p>
+      <p class="blend-note">every batch shifts slightly with the seasons.</p>
     </div>
 
     <div class="divider divider-tight reveal"></div>
@@ -120,7 +132,7 @@
     </style>
   </noscript>
 
-  <script src="/plume-assets/plume-shared.js?v=8"></script>
+  <script src="/plume-assets/plume-shared.js?v=9"></script>
   <script>PlumeUI.init();</script>
 </body>
 </html>
