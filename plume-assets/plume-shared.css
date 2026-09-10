@@ -231,6 +231,8 @@ p { font-size: 0.5rem; line-height: 1.1; opacity: 0.9; color: var(--blush); }
 .batch-label { font-size: 0.9rem; letter-spacing: 0.12em; opacity: 0.85; margin: 0 0 6px; }
 .batch-list { list-style: none; padding: 0; margin: 18px auto 0; font-size: 0.62rem; line-height: 1.7; }
 .batch-list li { margin: 4px 0; }
+.group-label { letter-spacing: 0.14em; opacity: 0.55; margin: 10px 0 2px; }
+.group-label:first-child { margin-top: 0; }
 .blend-card {
   margin-top: 26px;
   padding: 22px 26px;
