@@ -20,8 +20,6 @@
 
     :root {
       --burgundy: #300505;
-      --burgundy-glow: #4E1414;
-      --burgundy-deep: #1F0404;
       --blush: #FEE6D9;
       --blush-90: rgba(254,230,217,0.9);
       --blush-75: rgba(254,230,217,0.75);
@@ -31,29 +29,33 @@
 
     body {
       margin: 0;
-      background: radial-gradient(ellipse 120% 90% at 50% 18%, var(--burgundy-glow) 0%, var(--burgundy) 58%, var(--burgundy-deep) 100%);
+      background: var(--burgundy);
       color: var(--blush);
       font-family: "Courier New", "Noto Serif KR", serif;
       display: flex;
+      flex-direction: column;
       align-items: safe center;
-      justify-content: center;
+      justify-content: safe center;
       min-height: 100vh;
-    }
-
-    .container {
-      max-width: 720px;
-      padding: 40px;
-      text-align: center;
+      overflow-x: hidden;
     }
 
     /* ——— 1. the plume, opening out from the centre ——— */
 
-    .logo {
-      max-width: 888px;
+    .plume-stage {
       width: 100%;
-      height: auto;
+    }
+
+    /* centred, a little larger — breaking out to 888px like the original.
+       the wordmark's transparent padding (right 35% of the png) is accounted
+       for, so the ink itself sits in the centre of the page */
+    .logo {
       display: block;
-      margin: 0 auto 30px;
+      width: min(888px, calc(100vw - 80px));
+      height: auto;
+      margin: 40px auto 30px;
+      position: relative;
+      left: calc(min(888px, calc(100vw - 80px)) * 0.145);
       opacity: 0;
       animation: plume-open 2.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
       will-change: clip-path, filter, transform;
@@ -65,6 +67,12 @@
       0%   { clip-path: inset(49.5% 0 49.5% 0); filter: blur(16px); opacity: 0; transform: scale(0.96); }
       30%  { opacity: 1; }
       100% { clip-path: inset(0 0 0 0);        filter: blur(0);    opacity: 1; transform: scale(1); }
+    }
+
+    .container {
+      max-width: 720px;
+      padding: 0 40px 40px;
+      text-align: center;
     }
 
     /* ——— 2. the welcome, typed ——— */
@@ -200,8 +208,8 @@
     .divider.reveal { transform: scaleX(0); transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease; }
     .divider.reveal.visible { transform: scaleX(1); }
 
-    .copy-line {
-      margin: 12px auto;
+    .verse {
+      font-size: 0.62rem;
     }
 
     .tagline {
@@ -220,38 +228,9 @@
       margin: 0 auto 10px;
     }
 
-    /* ——— the botanicals ——— */
-
-    .botanicals {
-      padding-top: 26px;
-    }
-
-    .botanicals h2 {
-      font-size: 0.7rem;
-      font-weight: normal;
-      letter-spacing: 0.08em;
-      margin: 0 0 10px;
-      color: var(--blush);
-    }
-
-    .seasonal {
-      opacity: 0.8;
-    }
-
-    .blend-card {
-      margin-top: 26px;
-      padding: 22px 26px;
-      border: 1px solid var(--blush-55);
-      border-radius: 10px;
-    }
-
-    .blend-name {
-      letter-spacing: 0.08em;
-    }
-
-    .blend-note {
-      opacity: 0.75;
-      margin-top: 8px;
+    .copy-line {
+      font-size: 0.62rem;
+      margin: 12px auto;
     }
 
     /* ——— mobile ——— */
@@ -264,10 +243,13 @@
       .btn {
         width: 100%;
         max-width: 340px;
+        margin-left: auto;
+        margin-right: auto;
         padding: 12px 18px;
         font-size: 0.65rem;
         letter-spacing: 0.1em;
       }
+      .logo { margin-top: 28px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -288,23 +270,26 @@
 </head>
 
 <body>
-  <div class="container">
 
-    <!-- 1. Plume -->
+  <!-- 1. Plume -->
+  <div class="plume-stage">
     <img src="plume-welcome.png" alt="plume" class="logo">
+  </div>
+
+  <div class="container">
 
     <!-- 2. The welcome, typed -->
     <h1 aria-label="why, hello there gorgeous"><span class="type" aria-hidden="true">why, hello there gorgeous</span><span class="cursor" aria-hidden="true"></span></h1>
 
     <!-- 3. The buttons -->
     <div class="actions">
-      <a class="btn" href="mailto:hello@studiorjl.com?subject=reorder%3A%20plume" aria-label="reorder plume">
+      <a class="btn" href="mailto:orders@alegienne.com.au?subject=reorder%3A%20plume" aria-label="reorder plume">
         <span class="swap">
           <span class="default">more please</span>
           <span class="on-hover">reorder</span>
         </span>
       </a>
-      <a class="btn" href="#botanicals">
+      <a class="btn" href="mailto:orders@alegienne.com.au?subject=the%20botanicals" aria-label="ask about the botanicals">
         <span class="swap">
           <span class="default">explore the botanicals</span>
           <span class="on-hover">get acquainted with the plants</span>
@@ -313,33 +298,36 @@
     </div>
 
     <!-- 4. Everything below, line by line -->
-    <div class="divider reveal" data-d="0"></div>
 
-    <p class="copy-line reveal" data-d="1">plume · a seasonal botanical smoke blend.</p>
-    <p class="copy-line reveal" data-d="2">blended by hand by alegienne</p>
-    <p class="copy-line reveal" data-d="3">from the forest apothecary.</p>
+    <div class="divider reveal"></div>
 
-    <div class="divider reveal" data-d="4"></div>
+    <p class="verse reveal">
+     <br><br>plume <br><br>
+      a botanical smoke blend for baddies. <br><br>
+    </p>
 
-    <p class="tagline reveal" data-d="5">
+    <p class="verse reveal">
+      <br><br>roll me,<br>
+      <i>smoulder</i> me. <br>
+      inhale me, <br><br>
+      exhale blissfully.
+    </p>
+
+    <div class="divider reveal"></div>
+
+    <p class="tagline reveal">
       with love,<br>
       from alegienne<br>
       x.
     </p>
 
-    <img src="alegienne_hand_gold_transparent.png" alt="with love from alegienne x" class="signature reveal" data-d="6">
+    <img src="alegienne_hand_gold_transparent.png" alt="with love from alegienne x" class="signature reveal">
 
-    <!-- The botanicals -->
-    <section id="botanicals" class="botanicals">
-      <h2 class="reveal" data-d="0">the botanicals</h2>
-      <p class="seasonal reveal" data-d="1">
-        seasonal smoke blends, blended by hand in the alegienne apothecary.
-      </p>
-      <div class="blend-card reveal" data-d="2">
-        <p class="blend-name">plume · the current blend</p>
-        <p class="blend-note">she keeps a little mystery — the full botanical listing arrives with the season.</p>
-      </div>
-    </section>
+    <div class="divider reveal"></div>
+
+    <p class="copy-line reveal">plume · a seasonal botanical smoke blend.</p>
+    <p class="copy-line reveal">blended by hand by alegienne</p>
+    <p class="copy-line reveal">from the forest apothecary.</p>
 
   </div>
 
@@ -373,12 +361,15 @@
           return;
         }
         var io = new IntersectionObserver(function (entries) {
+          var batch = 0;
           entries.forEach(function (e) {
             if (!e.isIntersecting) return;
             var el = e.target;
             io.unobserve(el);
-            var d = parseInt(el.getAttribute('data-d') || '0', 10);
-            el.style.transitionDelay = (d * 0.16) + 's';
+            /* elements arriving together cascade one after another,
+               in the order they appear on the page */
+            el.style.transitionDelay = (batch * 0.18) + 's';
+            batch++;
             el.classList.add('visible');
           });
         }, { threshold: 0.2 });
