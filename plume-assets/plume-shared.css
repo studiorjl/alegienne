@@ -255,22 +255,28 @@ h1, .typed-line {
 .smoke-toggle {
   position: fixed;
   top: max(14px, env(safe-area-inset-top));
-  right: max(14px, env(safe-area-inset-right));
+  left: max(14px, env(safe-area-inset-left));
   z-index: 5;
-  padding: 7px 16px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--blush-55);
   border-radius: 999px;
   background: rgba(31,10,4,0.45);
   backdrop-filter: blur(6px);
   color: var(--blush-75);
-  font-family: inherit;
-  font-size: 0.56rem;
-  letter-spacing: 0.1em;
   cursor: pointer;
   opacity: 0;
   animation: rise-in 1s cubic-bezier(0.16, 1, 0.3, 1) 2.6s both;
 }
 .smoke-toggle:hover, .smoke-toggle:focus-visible { border-color: var(--blush-90); color: var(--blush); }
+.smoke-toggle svg { width: 12px; height: 12px; display: block; }
+.smoke-toggle .icon-play { display: none; }
+.smoke-toggle.cleared .icon-pause { display: none; }
+.smoke-toggle.cleared .icon-play { display: block; }
 
 /* ——— everything below, arriving as you scroll, in sequence ——— */
 
@@ -292,18 +298,22 @@ p { font-size: 0.5rem; line-height: 1.1; opacity: 0.9; color: var(--blush); }
 .divider.reveal { transform: scaleX(0); transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease; }
 .divider.reveal.visible { transform: scaleX(1); }
 
-.verse { font-size: 0.62rem; }
+.verse { font-size: 0.72rem; line-height: 1.45; }
 
 .tagline {
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   opacity: 0.85;
   letter-spacing: 0.05em;
   color: var(--blush);
-  margin: 26px auto 10px;
+  margin: 8px auto 10px;
 }
 
+/* the divider sitting directly above the tagline hugs tighter —
+   add class="divider divider-tight" to that one divider */
+.divider.divider-tight { margin: 12px auto 4px; }
+
 .signature {
-  max-width: 430px; /* up from 333px */
+  max-width: 500px; /* up from 430px */
   width: 100%;
   height: auto;
   display: block;
@@ -348,6 +358,7 @@ p { font-size: 0.5rem; line-height: 1.1; opacity: 0.9; color: var(--blush); }
   opacity: 0.7;
   margin: 4px 0;
 }
+.site-footer .footer-credit { margin-top: 30px; }
 .site-footer a { color: var(--blush-90); text-decoration: underline; text-underline-offset: 2px; }
 .site-footer a:hover { color: var(--blush); }
 
