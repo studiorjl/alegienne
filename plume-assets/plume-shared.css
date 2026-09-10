@@ -63,6 +63,18 @@ body {
   object-fit: cover;
   z-index: -2;
   background: var(--burgundy);
+  opacity: 0;
+  transform: translateY(16vh);
+  animation: smoke-rise 2.4s cubic-bezier(0.16, 1, 0.3, 1) 2.35s both;
+  will-change: transform, opacity;
+}
+
+/* the plume opens on still, flat burgundy — then the smoke
+   rises up from the bottom of the screen to meet it, just as
+   the welcome begins to type */
+@keyframes smoke-rise {
+  from { opacity: 0; transform: translateY(16vh); }
+  to   { opacity: 1; transform: none; }
 }
 
 .bg-tint {
@@ -70,8 +82,14 @@ body {
   inset: 0;
   z-index: -1;
   background: var(--burgundy);
-  opacity: 0.4; /* flat, no gradient — single knob: raise to mute the smoke, lower to reveal it */
+  opacity: 0;
+  animation: tint-rise 2.4s ease 2.35s both;
   pointer-events: none;
+}
+
+@keyframes tint-rise {
+  from { opacity: 0; }
+  to   { opacity: 0.4; } /* single knob: raise to mute the smoke, lower to reveal it */
 }
 
 /* ——— the plume, opening out from the centre ——— */
@@ -282,5 +300,5 @@ p { font-size: 0.5rem; line-height: 1.1; opacity: 0.9; color: var(--blush); }
   .logo, .btn, .reveal { opacity: 1 !important; transform: none !important; filter: none !important; clip-path: none !important; }
   .divider.reveal { transform: scaleX(1) !important; }
   .cursor { display: none !important; }
-  .video-bg { display: none; }
+  .video-bg, .bg-tint { animation: none !important; opacity: 0 !important; }
 }
