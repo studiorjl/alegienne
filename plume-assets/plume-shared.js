@@ -12,7 +12,7 @@
   /* the smoke plays a touch slower than real time — feels calmer.
      re-applied on loadedmetadata/play too, since some browsers reset
      playbackRate right after autoplay kicks in */
-  var SMOKE_SPEED = 0.7;
+  var SMOKE_SPEED = 0.55;
   function slowSmoke() {
     var vids = document.querySelectorAll('.video-bg');
     Array.prototype.forEach.call(vids, function (v) {
