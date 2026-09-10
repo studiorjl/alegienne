@@ -100,15 +100,16 @@
     var cleared = false;
     btn.addEventListener('click', function () {
       cleared = !cleared;
+      btn.classList.toggle('cleared', cleared);
       if (cleared) {
         vid.pause();
         vid.style.opacity = '0';
-        btn.textContent = 'bring back the smoke';
+        btn.setAttribute('aria-label', 'bring back the smoke');
         btn.setAttribute('aria-pressed', 'true');
       } else {
         vid.style.opacity = '1';
         vid.play();
-        btn.textContent = 'clear the smoke';
+        btn.setAttribute('aria-label', 'clear the smoke');
         btn.setAttribute('aria-pressed', 'false');
       }
     });
