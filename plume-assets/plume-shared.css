@@ -21,9 +21,15 @@ html { scroll-behavior: smooth; }
 
 * { box-sizing: border-box; }
 
-html, body {
+html {
   margin: 0;
-  background: var(--burgundy); /* flat colour fallback — no gradient, ever */
+  background: var(--burgundy); /* flat colour fallback — no gradient, ever.
+     NOTE: on html only, never body — body's background paints above
+     the negative z-index smoke layers and hides the video. */
+}
+
+body {
+  margin: 0;
 }
 
 body {
@@ -33,8 +39,9 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  position: relative;
-  /* NOTE: deliberately no overflow-x:hidden here — on iOS Safari an
+  /* NOTE: deliberately no position and no overflow here — either one
+     promotes body's own paint layers above the negative z-index smoke
+     layers (or breaks position:fixed on iOS), hiding the video. — on iOS Safari an
      overflow value other than visible on html/body turns position:fixed
      children into something scoped to the body's full scroll height
      instead of the real viewport. that's what was hiding the smoke
@@ -63,7 +70,7 @@ body {
   inset: 0;
   z-index: -1;
   background: var(--burgundy);
-  opacity: 0.58; /* flat, no gradient — keeps contrast steady top to bottom */
+  opacity: 0.4; /* flat, no gradient — single knob: raise to mute the smoke, lower to reveal it */
   pointer-events: none;
 }
 
