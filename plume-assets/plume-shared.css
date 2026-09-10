@@ -313,7 +313,7 @@ p { font-size: 0.5rem; line-height: 1.1; opacity: 0.9; color: var(--blush); }
 .divider.divider-tight { margin: 12px auto 4px; }
 
 .signature {
-  max-width: 375px; /* 75% — up from 430px, down from 500px */
+  max-width: 280px; /* 75% of 375px — Rebekah's calibration, 11 Sept */
   width: 100%;
   height: auto;
   display: block;
