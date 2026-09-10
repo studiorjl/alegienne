@@ -15,7 +15,7 @@
   <link rel="icon" type="image/png" href="/Alegienne-favicon.png">
 
   <!-- shared plume style guide — see /plume-assets/plume-shared.css -->
-  <link rel="stylesheet" href="/plume-assets/plume-shared.css?v=7">
+  <link rel="stylesheet" href="/plume-assets/plume-shared.css?v=8">
 
   <script type="application/ld+json">
   {
@@ -41,8 +41,12 @@
   <div class="bg-tint" aria-hidden="true"></div>
 
   <!-- optional, for anyone motion-sensitive who wants the smoke still
-       even without OS-level reduced-motion set -->
-  <button type="button" class="smoke-toggle" aria-pressed="false">clear the smoke</button>
+       even without OS-level reduced-motion set — pause icon while the
+       smoke plays, play icon once it's cleared -->
+  <button type="button" class="smoke-toggle" aria-pressed="false" aria-label="clear the smoke">
+    <svg class="icon-pause" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true" focusable="false"><rect x="2" y="1.5" width="2.6" height="9" rx="0.6"/><rect x="7.4" y="1.5" width="2.6" height="9" rx="0.6"/></svg>
+    <svg class="icon-play" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true" focusable="false"><path d="M2.8 1.2v9.6l7.6-4.8z"/></svg>
+  </button>
 
   <!-- 1. Plume -->
   <div class="plume-stage">
@@ -78,18 +82,19 @@
     <div class="divider reveal"></div>
 
     <p class="verse reveal">
-     <br><br>plume <br><br>
-      a botanical smoke blend for baddies. <br><br>
+      PLUME<br>
+      a seasonal botanical smoke blend.<br><br>
+      ...for the baddies.<br><br>
     </p>
 
     <p class="verse reveal">
-      <br><br>roll me,<br>
+      roll me,<br>
       <i>smoulder</i> me. <br>
       inhale me, <br><br>
       exhale blissfully.
     </p>
 
-    <div class="divider reveal"></div>
+    <div class="divider divider-tight reveal"></div>
 
     <p class="tagline reveal">
       with love,<br>
@@ -108,8 +113,8 @@
   </div>
 
   <footer class="site-footer reveal">
-    <p><a href="https://studiorjl.com" target="_blank" rel="noopener">site by studio rjl</a></p>
-    <p>&copy; always, alegienne. <a href="/plume/privacy/">privacy</a></p>
+    <p>&copy; always, alegienne.</p>
+    <p class="footer-credit"><a href="https://studiorjl.com" target="_blank" rel="noopener">site by studio rjl</a> &middot; <a href="/plume/privacy/">privacy</a></p>
   </footer>
 
   <noscript>
@@ -120,7 +125,7 @@
     </style>
   </noscript>
 
-  <script src="/plume-assets/plume-shared.js?v=7"></script>
+  <script src="/plume-assets/plume-shared.js?v=8"></script>
   <script>PlumeUI.init();</script>
 </body>
 </html>
