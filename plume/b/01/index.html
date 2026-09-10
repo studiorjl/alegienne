@@ -16,7 +16,7 @@
   <link rel="icon" type="image/png" href="/Alegienne-favicon.png">
 
   <!-- shared plume style guide — see /plume-assets/plume-shared.css -->
-  <link rel="stylesheet" href="/plume-assets/plume-shared.css?v=10">
+  <link rel="stylesheet" href="/plume-assets/plume-shared.css?v=11">
 
   <!-- batch-page-only air: a little more breathing space between the
        divider and "with love" than the landing page uses -->
@@ -24,6 +24,10 @@
     /* three line-breaks of air between the blend card and the divider */
     .divider.divider-tight { margin-top: 50px; margin-bottom: 14px; }
     .tagline { margin-top: 16px; }
+    /* dividers widen to the same width as the buttons */
+    .divider { width: 200px; }
+    /* a line break between "x." and the gold signature */
+    .signature { margin-top: 40px; }
   </style>
 </head>
 
@@ -113,8 +117,7 @@
     <div class="divider reveal"></div>
 
     <p class="copy-line reveal">plume · a seasonal botanical smoke blend.</p>
-    <p class="copy-line reveal">blended by hand by alegienne</p>
-    <p class="copy-line reveal">from the forest apothecary.</p>
+    <p class="copy-line reveal">blended by hand by alegienne · from the forest apothecary.</p>
 
     <p class="copy-line reveal" style="margin-top:26px;"><a href="/plume" style="color:var(--blush-75);text-decoration:underline;">back to plume</a></p>
 
@@ -133,7 +136,7 @@
     </style>
   </noscript>
 
-  <script src="/plume-assets/plume-shared.js?v=10"></script>
+  <script src="/plume-assets/plume-shared.js?v=11"></script>
   <script>PlumeUI.init();</script>
 </body>
 </html>
