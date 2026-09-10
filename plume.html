@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>plume — alegienne</title>
   <meta name="description" content="plume · a seasonal botanical smoke blend, blended by hand by alegienne from the forest apothecary.">
-  <meta name="theme-color" content="#300505">
+  <meta name="theme-color" content="#1f0a04">
   <meta property="og:title" content="plume — alegienne">
   <meta property="og:description" content="a seasonal botanical smoke blend, blended by hand from the forest apothecary.">
   <meta property="og:image" content="https://alegienne.com.au/plume-assets/plume-bg-poster.jpg">
@@ -15,7 +15,7 @@
   <link rel="icon" type="image/png" href="/Alegienne-favicon.png">
 
   <!-- shared plume style guide — see /plume-assets/plume-shared.css -->
-  <link rel="stylesheet" href="/plume-assets/plume-shared.css?v=6">
+  <link rel="stylesheet" href="/plume-assets/plume-shared.css?v=7">
 
   <script type="application/ld+json">
   {
@@ -31,13 +31,18 @@
 
 <body>
 
-  <!-- the smoke, for the whole scroll -->
+  <!-- the smoke, for the whole scroll (landing page only — the
+       botanical/batch pages use a still textured background instead) -->
   <video class="video-bg" autoplay muted loop playsinline disablepictureinpicture
          poster="/plume-assets/plume-bg-poster.jpg" aria-hidden="true">
     <source src="/plume-assets/plume-smoke-bg-pingpong.webm" type="video/webm">
     <source src="/plume-assets/plume-smoke-bg-pingpong.mp4" type="video/mp4">
   </video>
   <div class="bg-tint" aria-hidden="true"></div>
+
+  <!-- optional, for anyone motion-sensitive who wants the smoke still
+       even without OS-level reduced-motion set -->
+  <button type="button" class="smoke-toggle" aria-pressed="false">clear the smoke</button>
 
   <!-- 1. Plume -->
   <div class="plume-stage">
@@ -102,6 +107,11 @@
 
   </div>
 
+  <footer class="site-footer reveal">
+    <p><a href="https://studiorjl.com" target="_blank" rel="noopener">site by studio rjl</a></p>
+    <p>&copy; always, alegienne. <a href="/plume/privacy/">privacy</a></p>
+  </footer>
+
   <noscript>
     <style>
       .btn, .reveal { opacity: 1; transform: none; }
@@ -110,7 +120,7 @@
     </style>
   </noscript>
 
-  <script src="/plume-assets/plume-shared.js?v=6"></script>
+  <script src="/plume-assets/plume-shared.js?v=7"></script>
   <script>PlumeUI.init();</script>
 </body>
 </html>
