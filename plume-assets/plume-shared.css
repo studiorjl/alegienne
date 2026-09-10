@@ -11,7 +11,8 @@
 html { scroll-behavior: smooth; }
 
 :root {
-  --burgundy: #300505;
+  --burgundy: #1f0a04;
+  --burgundy-old: #300505; /* previous tone, kept for reference */
   --blush: #FEE6D9;
   --blush-90: rgba(254,230,217,0.9);
   --blush-75: rgba(254,230,217,0.75);
@@ -91,6 +92,19 @@ body {
   from { opacity: 0; }
   to   { opacity: 0.4; } /* single knob: raise to mute the smoke, lower to reveal it */
 }
+
+.texture-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  background: var(--burgundy) url('/plume-assets/plume-texture-bg.jpg') center / cover no-repeat;
+  opacity: 0;
+  animation: texture-fade 1.6s ease 0.1s both;
+}
+@keyframes texture-fade { to { opacity: 1; } }
 
 /* ——— the plume, opening out from the centre ——— */
 
@@ -211,6 +225,53 @@ h1, .typed-line {
 .btn:hover .swap .default, .btn:focus-visible .swap .default { opacity: 0; transform: translateY(-7px); }
 .btn:hover .swap .on-hover, .btn:focus-visible .swap .on-hover { opacity: 1; transform: none; }
 
+/* touch devices have no hover, so the alternate label (the hint that
+   this is a live action) never appears on its own — this quietly
+   swaps the two lines every few seconds instead, forever, so the
+   button keeps whispering that it does something even before it's
+   tapped. desktop with a mouse never sees this — hover already tells
+   the story there. */
+@media (hover: none) and (pointer: coarse) {
+  .typed .btn .swap .default { animation: peek-out 6s ease-in-out infinite; }
+  .typed .btn .swap .on-hover { animation: peek-in 6s ease-in-out infinite; }
+  .typed .btn:nth-of-type(2) .swap .default,
+  .typed .btn:nth-of-type(2) .swap .on-hover { animation-delay: 0.6s; }
+}
+@keyframes peek-out {
+  0%, 62% { opacity: 1; transform: none; }
+  72%, 88% { opacity: 0; transform: translateY(-7px); }
+  98%, 100% { opacity: 1; transform: none; }
+}
+@keyframes peek-in {
+  0%, 62% { opacity: 0; transform: translateY(7px); }
+  72%, 88% { opacity: 1; transform: none; }
+  98%, 100% { opacity: 0; transform: translateY(7px); }
+}
+
+/* ——— clear the smoke: a quiet, optional pause for motion-sensitive
+   visitors who haven't set OS-level reduced-motion but still want the
+   video still. lives top-of-screen, out of the way, easy to ignore ——— */
+
+.smoke-toggle {
+  position: fixed;
+  top: max(14px, env(safe-area-inset-top));
+  right: max(14px, env(safe-area-inset-right));
+  z-index: 5;
+  padding: 7px 16px;
+  border: 1px solid var(--blush-55);
+  border-radius: 999px;
+  background: rgba(31,10,4,0.45);
+  backdrop-filter: blur(6px);
+  color: var(--blush-75);
+  font-family: inherit;
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  opacity: 0;
+  animation: rise-in 1s cubic-bezier(0.16, 1, 0.3, 1) 2.6s both;
+}
+.smoke-toggle:hover, .smoke-toggle:focus-visible { border-color: var(--blush-90); color: var(--blush); }
+
 /* ——— everything below, arriving as you scroll, in sequence ——— */
 
 .reveal {
@@ -242,7 +303,7 @@ p { font-size: 0.5rem; line-height: 1.1; opacity: 0.9; color: var(--blush); }
 }
 
 .signature {
-  max-width: 333px;
+  max-width: 430px; /* up from 333px */
   width: 100%;
   height: auto;
   display: block;
@@ -269,16 +330,37 @@ p { font-size: 0.5rem; line-height: 1.1; opacity: 0.9; color: var(--blush); }
 .blend-name { letter-spacing: 0.08em; }
 .blend-note { opacity: 0.75; margin-top: 8px; }
 
+/* ——— footer, on every page — a quiet textured strip, same family
+   as the studio rjl site footer ("© always, studio rjl.") ——— */
+
+.site-footer {
+  position: relative;
+  width: 100%;
+  margin-top: 50px;
+  padding: 26px 24px calc(26px + env(safe-area-inset-bottom));
+  text-align: center;
+  background: var(--burgundy) url('/plume-assets/plume-texture-bg.jpg') center / cover no-repeat;
+  border-top: 1px solid var(--blush-14);
+}
+.site-footer p {
+  font-size: 0.52rem;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+  margin: 4px 0;
+}
+.site-footer a { color: var(--blush-90); text-decoration: underline; text-underline-offset: 2px; }
+.site-footer a:hover { color: var(--blush); }
+
 /* ——— mobile: phone is priority, everything centered, logo big ———
    breakpoint is generous (680px) so small tablets get the same
    treatment as phones. desktop above this still adapts fine. */
 
 @media (max-width: 680px) {
   .logo {
-    max-width: 92vw;
-    max-height: 46vh; /* as close to "half the screen" as a landscape
-                          wordmark can get without overflowing width
-                          on a tall phone — see note in style guide */
+    max-width: 97vw; /* was 92vw — the PNG's own transparent margin is
+                          now cropped off, so this stretches the actual
+                          ink much closer to the real screen edge */
+    max-height: 46vh;
     margin-top: 24px;
   }
   .container { padding: 0 24px 40px; align-items: center; }
@@ -301,4 +383,6 @@ p { font-size: 0.5rem; line-height: 1.1; opacity: 0.9; color: var(--blush); }
   .divider.reveal { transform: scaleX(1) !important; }
   .cursor { display: none !important; }
   .video-bg, .bg-tint { animation: none !important; opacity: 0 !important; }
+  .texture-bg { animation: none !important; opacity: 1 !important; }
+  .smoke-toggle { display: none !important; } /* nothing playing to clear */
 }
