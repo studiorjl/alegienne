@@ -9,6 +9,25 @@
    ============================================================ */
 
 (function (window) {
+  /* the smoke plays a touch slower than real time — feels calmer.
+     re-applied on loadedmetadata/play too, since some browsers reset
+     playbackRate right after autoplay kicks in */
+  var SMOKE_SPEED = 0.85;
+  function slowSmoke() {
+    var vids = document.querySelectorAll('.video-bg');
+    Array.prototype.forEach.call(vids, function (v) {
+      var apply = function () { v.playbackRate = SMOKE_SPEED; };
+      apply();
+      v.addEventListener('loadedmetadata', apply);
+      v.addEventListener('play', apply);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', slowSmoke);
+  } else {
+    slowSmoke();
+  }
+
   function typeText(el, cursorEl, text, speed, done) {
     el.textContent = '';
     var i = 0;
