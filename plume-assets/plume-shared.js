@@ -90,5 +90,34 @@
     setTimeout(function () { typeText(typeEl, cursor, full, speed, reveal); }, startDelay);
   }
 
+  /* ——— clear the smoke: pauses the video + fades the tint up so the
+     page reads clean and still, for anyone motion-sensitive who wants
+     control beyond their OS-level reduced-motion setting ——— */
+  function armSmokeToggle() {
+    var btn = document.querySelector('.smoke-toggle');
+    var vid = document.querySelector('.video-bg');
+    if (!btn || !vid) return;
+    var cleared = false;
+    btn.addEventListener('click', function () {
+      cleared = !cleared;
+      if (cleared) {
+        vid.pause();
+        vid.style.opacity = '0';
+        btn.textContent = 'bring back the smoke';
+        btn.setAttribute('aria-pressed', 'true');
+      } else {
+        vid.style.opacity = '1';
+        vid.play();
+        btn.textContent = 'clear the smoke';
+        btn.setAttribute('aria-pressed', 'false');
+      }
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', armSmokeToggle);
+  } else {
+    armSmokeToggle();
+  }
+
   window.PlumeUI = { init: init, armReveals: armReveals };
 })(window);
