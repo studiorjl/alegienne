@@ -33,8 +33,13 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  overflow-x: hidden;
   position: relative;
+  /* NOTE: deliberately no overflow-x:hidden here — on iOS Safari an
+     overflow value other than visible on html/body turns position:fixed
+     children into something scoped to the body's full scroll height
+     instead of the real viewport. that's what was hiding the smoke
+     video behind the flat colour except at the very edges. the logo
+     and verse widths below are all capped so nothing needs it. */
 }
 
 /* ——— the smoke, behind everything, for the whole scroll ———
