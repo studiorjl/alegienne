@@ -325,9 +325,9 @@ p { font-size: 0.5rem; line-height: 1.1; opacity: 0.9; color: var(--blush); }
 /* ——— the botanicals (batch pages) ——— */
 
 .batch-label { font-size: 0.9rem; letter-spacing: 0.12em; opacity: 0.85; margin: 0 0 6px; }
-.batch-list { list-style: none; padding: 0; margin: 18px auto 0; font-size: 0.62rem; line-height: 1.7; }
+.batch-list { list-style: none; padding: 0; margin: 18px auto 0; font-size: 0.7rem; line-height: 1.7; }
 .batch-list li { margin: 4px 0; }
-.group-label { letter-spacing: 0.14em; opacity: 0.55; margin: 16px 0 2px; }
+.group-label { letter-spacing: 0.14em; opacity: 0.55; margin: 28px 0 2px; }
 .group-label:first-child { margin-top: 0; }
 .blend-card {
   margin-top: 26px;
@@ -340,8 +340,21 @@ p { font-size: 0.5rem; line-height: 1.1; opacity: 0.9; color: var(--blush); }
   color: #300505;
 }
 .blend-card a { color: #300505; }
-.blend-name { letter-spacing: 0.08em; font-size: 0.85rem; }
-.blend-note { opacity: 0.75; margin-top: 22px; }
+.blend-card p { color: #300505; }
+.blend-card { position: relative; overflow: hidden; }
+.blend-card > * { position: relative; z-index: 1; }
+/* a faint paper grain, so the blush sits softer on the dark page */
+.blend-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23g)' opacity='0.35'/%3E%3C/svg%3E");
+  opacity: 0.09;
+  pointer-events: none;
+}
+.blend-name { letter-spacing: 0.08em; font-size: 0.9rem; }
+.blend-note { opacity: 0.75; margin-top: 22px; font-size: 0.7rem; }
 
 /* ——— footer, on every page — a quiet textured strip, same family
    as the studio rjl site footer ("© always, studio rjl.") ——— */
