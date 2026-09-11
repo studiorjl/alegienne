@@ -61,7 +61,7 @@
         if (!e.isIntersecting) return;
         var el = e.target;
         io.unobserve(el);
-        el.style.transitionDelay = (batch * 0.18) + 's';
+        el.style.transitionDelay = (batch * 0.35) + 's';
         batch++;
         el.classList.add('visible');
       });
@@ -81,7 +81,10 @@
 
     function reveal() {
       document.documentElement.classList.add(afterClass);
-      setTimeout(armReveals, 400);
+      /* wait for the button(s) to fully arrive before anything
+         below arms — the divider + text then follow in sequence,
+         never alongside the button rise */
+      setTimeout(armReveals, 1400);
       opts.onReady && opts.onReady();
     }
 
