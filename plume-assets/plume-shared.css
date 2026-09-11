@@ -178,6 +178,10 @@ h1, .typed-line {
   flex-wrap: wrap;
   margin-bottom: 6px;
 }
+/* the re-order button at the very end of the page — same breathing
+   space it had in the hero (28px above, margins collapse with the
+   copy-line's own 12px, matching the h1-to-button gap up top) */
+.actions.reorder { margin-top: 28px; }
 
 .btn {
   position: relative;
