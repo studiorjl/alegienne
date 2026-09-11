@@ -22,10 +22,37 @@
       v.addEventListener('play', apply);
     });
   }
+
+  /* iOS blocks muted autoplay while Low Power Mode is on (and some
+     browsers block it regardless) — the video then sits paused on its
+     poster with no controls to save it. this listens for the very
+     first touch, tap or scroll, and uses that user gesture to start
+     the smoke. it respects the pause/play toggle: once cleared stays
+     cleared, so this only ever rescues a blocked autoplay */
+  function rescueAutoplay() {
+    var vids = document.querySelectorAll('.video-bg');
+    if (!vids.length) return;
+    var start = function () {
+      Array.prototype.forEach.call(vids, function (v) {
+        if (!v.autoplay) return;            /* the toggle has paused it */
+        var pr = v.play();
+        if (pr && typeof pr.catch === 'function') pr.catch(function () {});
+      });
+      window.removeEventListener('touchstart', start);
+      window.removeEventListener('mousedown', start);
+      window.removeEventListener('scroll', start, true);
+      window.removeEventListener('keydown', start);
+    };
+    window.addEventListener('touchstart', start, { passive: true });
+    window.addEventListener('mousedown', start);
+    window.addEventListener('scroll', start, { passive: true, capture: true });
+    window.addEventListener('keydown', start);
+  }
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', slowSmoke);
+    document.addEventListener('DOMContentLoaded', function () { slowSmoke(); rescueAutoplay(); });
   } else {
     slowSmoke();
+    rescueAutoplay();
   }
 
   function typeText(el, cursorEl, text, speed, done) {
@@ -106,10 +133,12 @@
       btn.classList.toggle('cleared', cleared);
       if (cleared) {
         vid.pause();
+        vid.autoplay = false;   /* tells the autoplay rescue to leave it be */
         vid.style.opacity = '0';
         btn.setAttribute('aria-label', 'bring back the smoke');
         btn.setAttribute('aria-pressed', 'true');
       } else {
+        vid.autoplay = true;
         vid.style.opacity = '1';
         vid.play();
         btn.setAttribute('aria-label', 'clear the smoke');
