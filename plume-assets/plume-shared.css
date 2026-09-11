@@ -330,6 +330,9 @@ p { font-size: 0.5rem; line-height: 1.1; opacity: 0.9; color: var(--blush); }
 .batch-list li { margin: 4px 0; }
 .group-label { letter-spacing: 0.16em; opacity: 0.7; font-size: 0.72rem; margin: 50px 0 4px; }
 .group-label:first-child { margin-top: 0; }
+/* the <br><br> break between the leaves list and 'blooms' —
+   li + .group-label beats the generic li margin */
+.batch-list li + .group-label { margin: 50px 0 4px; }
 .batch-list li.li-gap { margin-top: 32px; }
 .blend-card {
   margin-top: 26px;
