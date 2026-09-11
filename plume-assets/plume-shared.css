@@ -232,20 +232,20 @@ h1, .typed-line {
    tapped. desktop with a mouse never sees this — hover already tells
    the story there. */
 @media (hover: none) and (pointer: coarse) {
-  .typed .btn .swap .default { animation: peek-out 6s ease-in-out infinite; }
-  .typed .btn .swap .on-hover { animation: peek-in 6s ease-in-out infinite; }
+  .typed .btn .swap .default { animation: peek-out 10s ease-in-out infinite; }
+  .typed .btn .swap .on-hover { animation: peek-in 10s ease-in-out infinite; }
   .typed .btn:nth-of-type(2) .swap .default,
   .typed .btn:nth-of-type(2) .swap .on-hover { animation-delay: 0.6s; }
 }
 @keyframes peek-out {
   0%, 60% { opacity: 1; transform: none; }
-  70%, 92% { opacity: 0; transform: translateY(-7px); }
-  98%, 100% { opacity: 1; transform: none; }
+  65%, 90% { opacity: 0; transform: translateY(-7px); }
+  95%, 100% { opacity: 1; transform: none; }
 }
 @keyframes peek-in {
   0%, 60% { opacity: 0; transform: translateY(7px); }
-  70%, 92% { opacity: 1; transform: none; }
-  98%, 100% { opacity: 0; transform: translateY(7px); }
+  65%, 90% { opacity: 1; transform: none; }
+  95%, 100% { opacity: 0; transform: translateY(7px); }
 }
 
 /* ——— clear the smoke: a quiet, optional pause for motion-sensitive
@@ -325,10 +325,10 @@ p { font-size: 0.5rem; line-height: 1.1; opacity: 0.9; color: var(--blush); }
 
 /* ——— the botanicals (batch pages) ——— */
 
-.batch-label { font-size: 0.9rem; letter-spacing: 0.12em; opacity: 0.85; margin: 0 0 6px; }
+.batch-label { font-size: 0.9rem; letter-spacing: 0.12em; opacity: 0.85; margin: 0 0 6px; line-height: 1.85; }
 .batch-list { list-style: none; padding: 0; margin: 18px auto 0; font-size: 0.62rem; line-height: 1.7; }
 .batch-list li { margin: 4px 0; }
-.group-label { letter-spacing: 0.16em; opacity: 0.7; font-size: 0.72rem; margin: 32px 0 4px; }
+.group-label { letter-spacing: 0.16em; opacity: 0.7; font-size: 0.72rem; margin: 50px 0 4px; }
 .group-label:first-child { margin-top: 0; }
 .batch-list li.li-gap { margin-top: 32px; }
 .blend-card {
