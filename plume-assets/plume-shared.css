@@ -183,6 +183,15 @@ h1, .typed-line {
    copy-line's own 12px, matching the h1-to-button gap up top) */
 .actions.reorder { margin-top: 28px; }
 
+/* two-line buttons (landing page) — both lines sit stacked, no swap
+   motion; the pill keeps its padding and simply grows taller */
+.btn.stack { flex-direction: column; }
+.btn .btn-line {
+  display: block;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
 .btn {
   position: relative;
   display: inline-flex;
